@@ -1,0 +1,34 @@
+
+<div class="block">
+  <div class="title-block">
+    <h1 class="title-tariff">Тарифы</h1>
+    <div class="all-subtitle-tariff">
+      <p class="subtitle-tariff">Lower packet - Минимальный тарифный план, где вам выдаеться 10 ГБ интернета, 40 минут на других операторов и 40 СМС сообщений на другие операторы</p>
+      <p class="subtitle-tariff">Middle packet - Средний тарифный план, где вам выдаеться 15 ГБ интернета, 80 минут на других операторов и 60 СМС сообщений на другие операторы:</p>
+      <p class="subtitle-tariff">Higher packet - Высокий тарифный план, где вам выдаеться 20 ГБ интернета, 120 минут на других операторов и 80 СМС сообщений на другие операторы</p>
+    </div>
+  </div>
+  <div class="tariff-block">
+    <form class="form">
+        <mat-card class="card1" *ngFor="let tariff of tariffs | tariffFilter:tariffForm.minutes:tariffForm.gigabytes:tariffForm.sms">
+          <div>
+              <h3>Название: {{tariff.name}}</h3>
+          </div>
+          <div>
+            <p>Минуты: {{tariff.minutes / 60}}</p>
+          </div>
+          <div>
+            <p>Гигабайты: {{tariff.gigabytes / 1024}}</p>
+          </div>
+          <div>
+            <p>СМС: {{tariff.sms}}</p>
+          </div>
+          <div>
+            <p>Цена: {{tariff.price}}</p>
+          </div>
+        </mat-card>
+    </form>
+  </div>
+</div>
+
+

@@ -1,0 +1,45 @@
+<h1> Отзывы</h1>
+<div class="all-card">
+  <div class="card-filter">
+    <mat-card class="card">
+        <div>
+            <span>Отправить отзыв</span>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Тариф</mat-label>
+                <mat-select>
+                <mat-option *ngFor="let tariff of tariffs" [value]="tariff.id" [(ngModel)]="selectedTariff">
+                    {{tariff.name}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Текст</mat-label>
+                <input matInput type="text" placeholder="Тарифный план плохой" [(ngModel)]="text">
+            </mat-form-field>
+        </div>
+        <button mat-button color="accent" (click)="send()">Отправить</button>
+    </mat-card>
+
+  </div>
+  <form class="card-review">
+
+    <mat-card class="card" *ngFor="let review of reviews">
+        <div>
+            <h3>
+                Пользователь: {{review.username}}
+            </h3>
+        </div>
+        <div>
+            Тариф: {{review.tariff.name}}
+        </div>
+        <div>
+            {{review.text}}
+        </div>
+    </mat-card>
+  </form>
+
+</div>

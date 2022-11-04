@@ -1,0 +1,55 @@
+<div class="card" *ngIf="logged==false">
+  <div><span><h1>Авторизация</h1>></span></div>
+    <div>
+        <div appearance="fill" class="form-box">
+          <mat-label><p>Введите имя пользователя</p>></mat-label>
+            <input matInput type="text" [(ngModel)]="username">
+        </div>
+    </div>
+    <div>
+        <div appearance="fill" class="form-box">
+          <mat-label><p>Введите пароль</p>></mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div>
+      <button id="click" mat-button class="form-box" (click)="login()"><p>Войти</p>></button>
+    </div>
+    <div>
+      <a id="click" mat-button class="form-box" href="registration"><p>Регистрация</p>></a>
+    </div>
+</div>
+
+<mat-card class="card1" *ngIf="logged==true&&userInfo&&userInfo.tariff">
+    <h1>
+        Информация о вашем тарифе
+    </h1>
+
+    <mat-card-subtitle>
+      <p> Название: {{userInfo.tariff.name}} </p>
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>
+      <p> Минут использовано: {{(userInfo.used_resources.minutes/60).toFixed(2)}} из {{(userInfo.tariff.minutes/60).toFixed(2)}} </p>
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>
+      <p> Гигабайт использовано: {{(userInfo.used_resources.gigabytes/1024).toFixed(2)}} из {{(userInfo.tariff.gigabytes/1024).toFixed(2)}} </p>
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>
+      <p> СМС использовано: {{userInfo.used_resources.sms}} из {{userInfo.tariff.sms}} </p>
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>
+      <p> Цена: {{userInfo.tariff.price}} </p>
+    </mat-card-subtitle>
+    <div *ngIf="logged==true">
+        <button mat-flat-button class="form-box" id="click" (click)="logout()"><p>Выйти</p></button>
+    </div>
+</mat-card>
+

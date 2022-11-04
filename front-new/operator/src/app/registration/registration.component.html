@@ -1,0 +1,28 @@
+<div class="card">
+    <mat-card-title>
+      <span><h1>Регистрация</h1></span>
+    </mat-card-title>
+    <div>
+        <div appearance="fill" class="form-box">
+
+          <p>Введите имя пользователя</p>
+          <input matInput type="text" [(ngModel)]="username">
+
+
+        </div>
+
+    </div>
+    <div>
+        <div appearance="fill" class="form-box">
+            <p class="password">Введите пароль</p>
+
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div>
+      <button mat-button class="form-box" id="click" (click)="register()"><p>Зарегистрироваться</p>></button>
+    </div>
+</div>

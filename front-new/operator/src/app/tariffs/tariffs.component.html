@@ -1,0 +1,56 @@
+<h1>Выбор тарифного плана</h1>
+<div>
+    <div class="card">
+
+        <div>
+            <mat-form-field>
+                <label><p>Связь, минуты</p></label>
+                <input matInput type="number" placeholder="20" [(ngModel)]="tariffForm.minutes">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <label><p>Интернет, гигабайты</p></label>
+                <input matInput type="number" placeholder="5" [(ngModel)]="tariffForm.gigabytes">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <label><p>Сообщения, СМС</p></label>
+                <input matInput type="number" placeholder="500" [(ngModel)]="tariffForm.sms">
+            </mat-form-field>
+        </div>
+        <div class="double-button">
+            <button mat-button color="accent" (click)="cancel()"><p>Сбросить</p></button>
+            <button mat-button color="accent" (click)="update()"><p>Изменить использованные ресурсы</p></button>
+        </div>
+    </div>
+
+    <h2>Рекомендуемые тарифные планы</h2>
+    <form class="form">
+        <mat-card class="card1" *ngFor="let tariff of tariffs | tariffFilter:tariffForm.minutes:tariffForm.gigabytes:tariffForm.sms">
+
+              <h3>
+                  Название: {{tariff.name}}
+                  <span *ngIf="bestTariff!.id===tariff.id">
+                      , * рекомендуем
+                  </span>
+              </h3>
+
+          <div>
+            <p>Минуты: {{tariff.minutes / 60}}</p>
+          </div>
+          <div>
+            <p>Гигабайты: {{tariff.gigabytes / 1024}}</p>
+          </div>
+          <div>
+            <p>СМС: {{tariff.sms}}</p>
+          </div>
+          <div>
+            <p>Цена: {{tariff.price}}</p>
+          </div>
+          <button mat-button color="accent" (click)="chooseTariff(tariff)"><p>Подключить</p></button>
+        </mat-card>
+    </form>
+
+</div>

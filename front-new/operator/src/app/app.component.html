@@ -1,0 +1,92 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer mode="side">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <div>
+      <a class="nav-item" mat-flat-button href="user-account">
+        <p>Личный кабинет</p>
+      </a>
+    </div>
+    <div>
+      <a class="nav-item" mat-flat-button href="tariffs">
+        <p>Выбор тарифа</p>
+      </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+      <a class="nav-item" mat-flat-button href="tel:+123456789">
+        <p>Контакт-центр</p>
+      </a>
+    </div>
+    <div>
+      <a class="nav-item" mat-flat-button href="mailto:rakernazar@gmail.com">
+        <p>Тех поддержка</p>
+      </a>
+    </div>
+
+
+  </mat-drawer>
+  <div class="main">
+            <div class="container">
+                <div class="menu">
+                    <div class="name-project">
+                        <button class="toggle" type="button" mat-button (click)="drawer.toggle()">
+                          <p>☰<span>OPerator</span></p>
+      			            </button>
+                        <router-outlet></router-outlet>
+                    </div>
+                    <div class="main-menu">
+                        <a href="main">Главная</a>
+                        <a href="all-tariff">Тарифы</a>
+                        <a href="contacts">Контакты</a>
+                        <a href="reviews">Отзывы</a>
+                        <a href="user-account">Кабинет</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+  <div class="footer" #footer>
+    Рахимжанов Ерназар
+
+
+    <a mat-button href="https://www.instagram.com/r.yernazar/">
+      <mat-icon svgIcon="ins" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    </a>
+    <a mat-button href="https://t.me/ryernazar">
+      <mat-icon svgIcon="tg" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    </a>
+    <a mat-button href="https://vk.com/id459174332">
+      <mat-icon svgIcon="vk" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    </a>
+    <a mat-button href="https://wa.me/+77081227829">
+      <mat-icon svgIcon="wa" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    </a>
+  </div>
+</mat-drawer-container>
